@@ -6,12 +6,17 @@ class Boids{
     this.clr = color(255, 0, 0);
   }
   run(){
+    this.render();
     this.update();
     this.checkEdges();
-    this.render();
+  }
+  render(){
+
   }
   update(){
-
+    this.vel.add(this.acc);
+    this.loc.add(this.vel);
+    this.vel.limit(75);
   }
   checkEdges(){
     if (this.loc.x < 0){
@@ -26,8 +31,5 @@ class Boids{
     if (this.loc.y > 800){
       this.vel.y = -(this.vel.y);
     }
-  }
-  render(){
-
   }
 }
