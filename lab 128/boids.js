@@ -1,9 +1,9 @@
 class Boids{
-  constructor(){
-    this.loc = createVector(random(0, 800) random(0, 800));
+  constructor(x, y, dx, dy){
+    this.loc = createVector(random(0, 800), random(0, 800));
     this.vel = createVector(dx, dy);
-    this.acc = createVector(dx, dy);
-    this.clr = color(255, 0, 0);
+    this.acc = createVector(0, 0);
+    this.clr = color(random(0, 255), random(0, 255), random(0, 255));
   }
   run(){
     this.render();
@@ -11,12 +11,13 @@ class Boids{
     this.checkEdges();
   }
   render(){
+    stroke(100);
+    strokeWeight(3);
+
 
   }
   update(){
-    this.vel.add(this.acc);
     this.loc.add(this.vel);
-    this.vel.limit(75);
   }
   checkEdges(){
     if (this.loc.x < 0){
