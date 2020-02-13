@@ -1,5 +1,5 @@
-//  Your Name
-// 	Date or version number
+//  Miles Nguyen
+// 	2/08/20
 //  This is a comment
 //  The setup function function is called once when your program begins
 var stats;
@@ -8,18 +8,26 @@ function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
+  loadStats();
   loadPlayerStats("Kobe Bryant");
-  console.log("kobe bryant");
-  console.log(aggregateStats("Kobe Bryant", ));
+  console.log("Kobe Bryant");
+  console.log(aggregateStats("Kobe Bryant", 3));
+  console.log(aggregateStats("Kobe Bryant", 10));
 }
+
 
 //  The draw function is called @ 30 fps
 function draw() {
+  background(0, 0, 0);
   createPlayerSelectionList();
   getSelectedPlayers();
-}
+  rect(100, 100, 600, 600);
+  fill(250, 0, 60);
+  textSize(10);
+  text("position", 400, 400);
 
-function loadPlayerStats("Kobe Bryant") {
+}
+function loadPlayerStats(player) {
   var statsArray = stats.findRows(player, 2);
   if (statsArray.length === 0) {
     statsArray = findRows(player + "*", 2);
@@ -30,7 +38,7 @@ playerSel = createSelect(true);
 playerSel.position((windowWidth-width)/2 + 270, (windowHeight-height)/2 + 40); // locate at 270,40 in canvas coordinates playerSel.size(150,headerHeight-50);
 }
 
-  // locate at 270,40 in canvas coordinates playerSel.size(150,headerHeight-50);
+// locate at 270,40 in canvas coordinates playerSel.size(150,headerHeight-50);
 
   function getSelectedPlayers() {
     chosenPlayers = [];
@@ -39,9 +47,10 @@ playerSel.position((windowWidth-width)/2 + 270, (windowHeight-height)/2 + 40); /
   }
 }
 
-function aggregateStats("Kobe Bryant", height) {
+function aggregateStats(player, stat) {
   results = [];
-  for (var i =0; i<statsArray.length; i++) {
-
+  for (var i =0; i < statsArray.length; i++) {
+    results.push(statsArray[i].get(stat));
   }
+  return results;
 }
