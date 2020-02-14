@@ -23,8 +23,13 @@ function draw() {
   getSelectedPlayers();
   rect(100, 100, 600, 600);
   fill(250, 0, 60);
-  textSize(10);
-  text("position", 400, 400);
+  strokeWeight(10);
+  text("position", 150, 350);
+  fill(0, 200, 200);
+  textFont("Georgia");
+  textStyle("Bold")
+  textSize(20);
+  line(300, 100, 300, 500);
 
 }
 function loadPlayerStats(player) {
@@ -48,8 +53,8 @@ playerSel.position((windowWidth-width)/2 + 270, (windowHeight-height)/2 + 40); /
 }
 
 function aggregateStats(player, stat) {
-  results = [];
-  for (var i =0; i < statsArray.length; i++) {
+  var results = [];
+  for (var i = 0; i < statsArray.length; i++) {
     results.push(statsArray[i].get(stat));
   }
   return results;
