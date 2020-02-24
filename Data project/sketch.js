@@ -29,13 +29,14 @@ function draw() {
   textFont("Georgia");
   textStyle("Bold")
   textSize(20);
-  line(300, 100, 300, 500);
+  line(115, 101, 115, 700);
+  color(255, 0, 0);
 
 }
 function loadPlayerStats(player) {
-  var statsArray = stats.findRows(player, 2);
+  statsArray = stats.findRows(player, 2);
   if (statsArray.length === 0) {
-    statsArray = findRows(player + "*", 2);
+    statsArray = stats.findRows(player + "*", 2);
   }
 }
 function createPlayerSelectionList() {
