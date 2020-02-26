@@ -31,7 +31,7 @@ class Ball{
   }
   update(){
     this.vel.add(this.acc);
-    this.vel.limit(5);
+    this.vel.limit(100);
     this.loc.add(this.vel);
   }
   render(){
