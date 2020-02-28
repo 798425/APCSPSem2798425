@@ -25,9 +25,10 @@ function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
-loadObjects(50);
+loadObjects(100);
 loadSnake();
 loadStuff();
+makeButtons();
 }
 function loadStuff(n){
   for (var i = 0; i < n; i++){
@@ -35,21 +36,22 @@ function loadStuff(n){
   }
   paddle = new Paddle(width/2, 700);
 }
+function runButtons(){
+  btnEasy.run();
+  btnMedium.run();
+  btnHard.run();
+  btnInstructions.run();
+}
 function startGam(){
   win = 2;
   runButtons();
-  background(200,70,100);
+  background(200,200,159);
   runButtons();
   textSize(90);
   fill(20,20,20);
   textFont('Georgia')
-  text("Paddle Game",150,200);
-  fill(random(0,255), random(0,255), random(0,255));
-  ellipse(340, 300, 100, 100);
-  fill(random(0,255), random(0,255), random(0,255));
-  ellipse(460, 300, 100, 100);
-  fill(random(0,255), random(0,255), random(0,255));
-  arc(400, 400, 80, 80, 0, PI, CHORD);
+  text("Paddle Game",150,300);
+
 }
 function endGame(){
   fill(255);
@@ -89,12 +91,6 @@ function endGame(){
     btnInstructions = new Button(650, 500, 100, 75, "Instructions",color(0, 255, 255), 4);
   }
   //shows buttons
-  function runButtons(){
-    btnEasy.run();
-    btnMedium.run();
-    btnHard.run();
-    btnInstructions.run();
-  }
   //game code
   function playGame(){
     background(128, 128, 128, 50);
@@ -122,7 +118,7 @@ function endGame(){
 function draw() {
   background(0,0,0);
   if (gameStat === 1){
-    startGame();
+    startGam();
   }
   if (gameStat === 2){
     playGame();

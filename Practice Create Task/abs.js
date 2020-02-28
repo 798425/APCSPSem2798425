@@ -56,7 +56,7 @@ class abs{
     push();
       translate(this.loc.x,this.loc.y);
       rotate(this.angle);
-      ellipse(10, 50, 10, 50, 0, -8);
+      ellipse(10, 50, 10, 10, 0, -8);
     pop();
     }
 
