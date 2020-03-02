@@ -2,13 +2,13 @@
 // 	8/21/19
 //  This is a comment
 //  The setup function function is called once when your program begins
-var ships = [];
+
 var score = 0;
 var food;
 var snake;
 var gameState = 1;
 var w = 20;
-var attractor, repeller;
+
 var bars = [];
 var numBars, barWidth;
 var balls = [];
@@ -25,7 +25,7 @@ function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
-loadObjects(100);
+//loadObjects(100);
 loadSnake();
 loadStuff();
 makeButtons();
@@ -85,10 +85,10 @@ function endGame(){
     }
   }
   function makeButtons(){
-    btnEasy = new Button(50, 500, 100, 75, "Easy", color(1, 255, 1), 1);
-    btnMedium = new Button(250, 500, 100, 75, "Medium", color(255, 255, 1), 2);
-    btnHard = new Button(450, 500, 100, 75, "Hard", color(255, 1, 1), 3);
-    btnInstructions = new Button(650, 500, 100, 75, "Instructions",color(0, 255, 255), 4);
+    btnEasy = new Button(50, 100, 100, 75, "Easy", color(1, 255, 1), 1);
+    btnMedium = new Button(50, 300, 100, 75, "Medium", color(255, 255, 1), 2);
+    btnHard = new Button(50, 500, 100, 75, "Hard", color(255, 1, 1), 3);
+    btnInstructions = new Button(50, 700, 100, 75, "Instructions",color(0, 255, 255), 4);
   }
   //shows buttons
   //game code
@@ -136,8 +136,7 @@ if(gameState === 2){
 if(gameState === 3){
   textSize(45);
   text("Game Over",10, 200);
-}
-  runObjects();
+  }
 }
 
 function keyPressed(){
@@ -166,27 +165,10 @@ function loadSnake(){
   snake = new Snake(w,w); //the snake is a 20 by 20 square
   food = new Food();
 }
-function loadObjects(n){
 
-  for(var i = 0; i < n; i++){
-    ships[i] = new Ship(random(width), random(height), random(-1, 1), random(-1, 1),1);
-  }
-  for(var i = 0; i < n; i++){
-    abs[i] = new abs(random(width), random(height), random(-1, 1), random(-1, 1),1);
-  }
-  attractor = new Ball (random(width/2), random(height/2), random(-.5, .5), random(-.5, .5), 0);
-  repellor = new Ball (random(width/2), random(height/2), random(-.5, .5), random(-.5, .5) ,0);
 
-}
+//  function runObjects(){
 
-  function runObjects(){
-    for(var i = 0; i < ships.length; i++){
-      ships[i].run();
-      abs[i].run();
-    }
-    attractor.run();
-    repellor.run();
-}
 function startGame(){
   // background(0, 0, 0);
   textSize(45);
