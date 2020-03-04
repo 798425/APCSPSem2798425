@@ -9,7 +9,7 @@ var gameState = 1;
 var w = 20;
 var bars = [];
 var numBars, barWidth;
-var balls = [];
+var thing = [];
 var paddle;
 var gameStat = 1;
 var difficulty, health, score;
@@ -30,7 +30,7 @@ makeButtons();
 }
 function loadStuff(n){
   for (var i = 0; i < n; i++){
-    balls[i] = new Ball(random(width), random(0,200), random(-3,3), random(-3,3));
+    thing[i] = new Ball(random(width), random(0,200), random(-3,3), random(-3,3));
   }
   paddle = new Paddle(width/2, 700);
 }
@@ -103,8 +103,8 @@ function endGame(){
     }
   }
   function runPaddle(){
-    for(var t = 0; t < balls.length; t++){
-      balls[t].run();
+    for(var t = 0; t < thing.length; t++){
+      thing[t].run();
     }
     fill(255);
     textSize(20);
@@ -183,9 +183,9 @@ function playSnake(){
   // background(0,0,0);
  }
  function removeBall(){
-  for (var i = things.length - 1; i >= 0; i--){
-    if (things[i].isColliding()){
-      things.splice(i,1);
+  for (var i = thing.length - 1; i >= 0; i--){
+    if (thing[i].isColliding()){
+      thing.splice(i,1);
       health = health -1;
     }
   }
