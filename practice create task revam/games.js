@@ -8,7 +8,7 @@ class Games{
   }
   run(){
     this.render();
-    this.isPressed()
+    this.isTouched();
   }
   render(){
     fill(this.clr);
@@ -16,12 +16,21 @@ class Games{
     if(this.id === 0){
       textSize(15);
       text("Snake Game", 100, 500);
-
-    }else{
       textSize(15);
       text("Paddle Game",600, 500)
-
     }
-
+  }
+  isTouched(){
+    if (mouseX > this.loc.x && mouseX < this.loc.x + this.w && mouseY > this.loc.y && mouseY < this.loc.y + this.h && mouseIsPressed){
+      if(this.id == 1){
+        jugar = 1;
+      }
+      if(this.id == 2){
+        jugar = 2
+      }
+      if(this.id == 3){
+        jugar = 3
+      }
+    }
   }
 }

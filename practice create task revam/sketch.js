@@ -11,6 +11,7 @@ var bars = [];
 var numBars, barWidth;
 var thing = [];
 var paddle;
+var jugar = 1;
 var gameStat = 1;
 var difficulty, health, score;
 var win = 2;
@@ -87,9 +88,15 @@ function endGame(){
     btnMedium = new Button(50, 300, 100, 75, "Medium", color(255, 255, 1), 2);
     btnHard = new Button(50, 500, 100, 75, "Hard", color(255, 1, 1), 3);
     btnInstructions = new Button(50, 700, 100, 75, "Instructions",color(0, 255, 255), 4);
+    btnSnake = new Button(200, 400, 100, 100, 69, "Snake", color(255,0,0));
+    btnPaddle = new Button(500, 400, 100, 100, 79, "Paddle,")
   }
   //shows buttons
   //game code
+  function screen(){
+    background(0, 0, 0);
+    btn.run();
+  }
   function playGame(){
     background(128, 128, 128, 50);
     runPaddle();
@@ -125,16 +132,26 @@ function draw() {
     endGame();
   }
 
-if(gameState === 1){
-  startGame();
-}
-if(gameState === 2){
-  playSnake();
-}
-if(gameState === 3){
-  textSize(45);
-  text("Game Over",10, 200);
+  if(gameState === 1){
+    startGame();
   }
+  if(gameState === 2){
+    playSnake();
+  }
+  if(gameState === 3){
+    textSize(45);
+    text("Game Over",10, 200);
+  }
+  if(jugar === 1){
+    screen();
+  }
+  if(jugar === 2){
+    playSnake();
+  }
+  if(jugar === 3){
+  }
+}
+
 }
 
 function keyPressed(){
