@@ -10,8 +10,6 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
   loadBoids(boi);
-
-
 }
 function draw(){
   background(5, 5, 5);

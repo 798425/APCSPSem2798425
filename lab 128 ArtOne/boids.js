@@ -11,7 +11,7 @@ class Boids{
     this.checkEdges();
   }
   render(){
-    for(var i =0; i < boids.length; i++){
+    for(var i = 0; i < boids.length; i++){
       var disToBoids = this.loc.dist(boids[i].loc);
       if(disToBoids < 200){
         stroke(this.clr);
