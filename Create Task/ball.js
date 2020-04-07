@@ -4,7 +4,7 @@ class Ball{
     this.y = y;
     this.dx = dx;
     this.dy = dy;
-    this.clr = color(255, 0, 0);
+    this.clr =  color (random (0, 255), random(0, 255),random(0, 255));
   }
 
 run(){
@@ -12,7 +12,6 @@ run(){
   this.update();
   this.render();
 }
-
 checkEdges(){
   if(this.x < 0){
     this.dx = -this.dx;
@@ -34,6 +33,6 @@ checkEdges(){
 }
 render(){
   fill(this.clr);
-  ellipse(this.x, this.y, 50, 50);
+  ellipse(this.x, this.y, random(0, 69),random(0, 69));
   }
 }

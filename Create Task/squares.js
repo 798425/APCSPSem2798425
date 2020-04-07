@@ -3,8 +3,8 @@ class Squares{
       this.loc = createVector(random(0, 800), random(0, 800));
       this.vel = createVector(random(-8, 8), random(-8, 8));
       this.acc = createVector(0, 0);
-      this.clr = color(0, 255, 0);
-      this.w = 50;
+      this.clr =  color (random (0, 255), random(0, 255),random(0, 255));
+      this.w = random(0, 69);
     }
 
   run(){
@@ -12,7 +12,6 @@ class Squares{
     this.update();
     this.render();
   }
-
   checkEdges(){
     if (this.loc.x < 0){
       this.vel.x = -(this.vel.x);
@@ -30,13 +29,11 @@ class Squares{
   update(){
     this.vel.add(this.acc);
     this.loc.add(this.vel);
-    if(mouseX === this.loc.x){
-      score = score + 1 
-    }
   }
 
   render(){
+    rectMode(CENTER);
     fill(this.clr);
-    rect(this.loc.x, this.loc.y, this.w, this.w);
+    rect(this.loc.x, this.loc.y, random(0, 69),random(0, 69));
   }
 }
