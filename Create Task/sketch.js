@@ -1,6 +1,6 @@
 //
 // 	3/24/19
-var score = 0;
+
 var balls = [];
 var squares = [];
 function setup(){
